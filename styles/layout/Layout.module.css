@@ -1,0 +1,71 @@
+.header {
+  background-color: blue;
+  color: white;
+  padding: 20px 20px 60px;
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  font-size: 1.25rem;
+}
+
+.header button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+  background: none;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.header button span {
+  margin-right: 10px;
+}
+
+.content {
+  display: flex;
+}
+
+.content aside {
+  width: 175px;
+  position: relative;
+  top: -40px;
+  background-color: white;
+  height: calc(100vh - 70px);
+  border-top-right-radius: 15px;
+  padding: 25px;
+}
+
+.content aside div {
+  color: #404040;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.content aside ul {
+  list-style: none;
+  color: grey;
+}
+
+.content aside li {
+  margin-bottom: 15px;
+}
+
+.content aside li a {
+  display: flex;
+  align-items: center;
+}
+
+.content aside li svg {
+  margin-right: 10px;
+}
+
+.content main {
+  width: calc(100% - 175px);
+  padding: 30px;
+}
