@@ -1,3 +1,12 @@
+import Head from "next/head";
+
 export default function Home() {
-  return <div>Todo app</div>;
+  return (
+    <div>
+      <Head>
+        <title>Todo app | Todos</title>
+      </Head>
+      Todo app
+    </div>
+  );
 }

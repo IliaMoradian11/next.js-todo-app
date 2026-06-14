@@ -2,7 +2,7 @@ import User from "@/models/User";
 import connectDB from "@/utils/connectDB";
 import { hashPassword } from "@/utils/auth";
 
-export async function handler(req, res) {
+export default async function handler(req, res) {
   const isConnected = await connectDB();
   if (!isConnected)
     return res
@@ -22,12 +22,14 @@ export async function handler(req, res) {
         ok: false,
         message: "There is an existing user with this email",
       });
-
     const hashedPassword = await hashPassword(password);
-    await User.create({ email, password: hashPassword });
+    await User.create({ email, password: hashedPassword });
 
-    res.status(201).json({ ok: true, message: "User created" });
+    return res.status(201).json({ ok: true, message: "User created" });
   } catch (err) {
     console.log(err);
+    return res
+      .status(500)
+      .json({ ok: false, message: "Internal server error" });
   }
 }

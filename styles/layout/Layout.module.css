@@ -29,6 +29,7 @@
 
 .content {
   display: flex;
+  height: calc(100vh - 110px);
 }
 
 .content aside {
@@ -68,4 +69,5 @@
 .content main {
   width: calc(100% - 175px);
   padding: 30px;
+  overflow-y: auto;
 }
