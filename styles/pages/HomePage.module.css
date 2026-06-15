@@ -1,0 +1,79 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.cards {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.cards .cardHeader {
+  padding: 6px;
+  border-radius: 10px 10px 0 0;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+}
+
+.cards .cardContent {
+  padding: 20px;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards .todo {
+  box-shadow: 0 0 8px -3px #828282;
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.cards .todo .todoTopLine {
+  width: 50%;
+  height: 3px;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+.cards .todo p {
+  color: #404040;
+  margin: 2px 0 20px;
+}
+
+.cards .todo .todoButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cards .todo .todoButtons button {
+  padding: 3px 6px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.cards .todo .todoButtons button:nth-child(1) {
+  background-color: #fff09a;
+  color: #a97900;
+}
+
+.cards .todo .todoButtons button:nth-child(2) {
+  background-color: #bfffe7;
+  color: #00965c;
+}
+
+.cards .todo .todoButtons button svg:nth-child(1) {
+  margin-right: 5px;
+}
+
+.cards .todo .todoButtons button svg:nth-child(2) {
+  margin-left: 5px;
+}

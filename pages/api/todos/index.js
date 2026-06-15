@@ -5,15 +5,15 @@ import User from "@/models/User";
 import connectDB from "@/utils/connectDB";
 
 export default async function handler(req, res) {
-  if (req.method === "POST") {
-    const isConnected = await connectDB();
-    if (!isConnected)
-      return res
-        .status(500)
-        .json({ ok: false, message: "Internal server error" });
+  const isConnected = await connectDB();
+  if (!isConnected)
+    return res
+      .status(500)
+      .json({ ok: false, message: "Internal server error" });
 
+  if (req.method === "POST") {
     const data = await getSession({ req });
-    if (!data || !data?.user?.email)
+    if (!data)
       return res
         .status(401)
         .json({ ok: false, message: "You are not signed in" });
@@ -51,7 +51,22 @@ export default async function handler(req, res) {
         .status(500)
         .json({ ok: false, message: "Internal server error" });
     }
-  } else if (req.method === "PATCH") {
-    return res.status(500).json("not developed yet!!");
+  } else if (req.method === "GET") {
+    try {
+      const userData = await getSession({ req });
+      if (!userData)
+        return res
+          .status(401)
+          .json({ ok: false, message: "You are not signed in" });
+
+      const email = userData.user.email;
+      const user = await User.findOne({ email });
+      return res.status(200).json({ ok: true, data: user.todos });
+    } catch (err) {
+      console.log(err);
+      return res
+        .status(500)
+        .json({ ok: false, message: "Internal server error" });
+    }
   }
 }
