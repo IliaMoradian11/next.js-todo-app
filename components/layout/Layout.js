@@ -10,7 +10,7 @@ function Layout({ children }) {
   return (
     <>
       <header className={styles.header}>
-        <h2>Todo app | Next.js fullstack project</h2>
+        <h2>Todo app | Next.js Fullstack Project</h2>
         <button>
           <span>Logout</span>
           <LuLogOut />
@@ -27,13 +27,13 @@ function Layout({ children }) {
               </Link>
             </li>
             <li>
-              <Link href="add-todo">
+              <Link href="/add-todo">
                 <BiCommentAdd />
                 Add todo
               </Link>
             </li>
             <li>
-              <Link href="profile">
+              <Link href="/account/profile">
                 <CgProfile />
                 Profile
               </Link>

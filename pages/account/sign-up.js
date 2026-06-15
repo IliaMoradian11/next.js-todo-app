@@ -35,6 +35,7 @@ export default function SignUpPage() {
       });
       if (response.ok) {
         toast.success("Logged in successfully");
+        router.push("/account/profile");
       } else {
         toast.error("Account created; please login.");
         router.push("/account/sign-in");
@@ -47,7 +48,7 @@ export default function SignUpPage() {
   return (
     <div className={styles.wrapper}>
       <Head>
-        <title>Todo app: Sign in to your account!</title>
+        <title>Todo app | Sign in to your account!</title>
       </Head>
       <div className={styles.container}>
         <h2>Sign-up Form</h2>
