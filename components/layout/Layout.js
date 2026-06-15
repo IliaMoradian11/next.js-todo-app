@@ -27,7 +27,7 @@ function Layout({ children }) {
               </Link>
             </li>
             <li>
-              <Link href="/add-todo">
+              <Link href="/todos/add-todo">
                 <BiCommentAdd />
                 Add todo
               </Link>
