@@ -12,10 +12,10 @@ const userSchema = new Schema({
   firstName: String,
   lastName: String,
   todos: {
-    todo: [],
-    inProgress: [],
-    review: [],
-    done: [],
+    todo: [{ todoId: String, title: String }],
+    inProgress: [{ todoId: String, title: String }],
+    review: [{ todoId: String, title: String }],
+    done: [{ todoId: String, title: String }],
   },
   createdAt: {
     type: Date,

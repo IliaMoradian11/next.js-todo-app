@@ -76,7 +76,7 @@ export default function ProfilePage() {
       <Head>
         <title>Todo app | Your profile</title>
       </Head>
-      {status !== "loading" ? (
+      {status !== "loading" && status !== "unauthenticated" ? (
         <>
           <h3>
             <CgProfile />

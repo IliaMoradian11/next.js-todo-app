@@ -3,8 +3,10 @@ import Credentials from "next-auth/providers/credentials";
 
 import User from "@/models/User";
 import { comparePasswords } from "@/utils/auth";
+import connectDB from "@/utils/connectDB";
 
 const authOptions = {
+  session: { strategy: "jwt" },
   providers: [
     Credentials({
       async authorize(credentials) {
@@ -12,6 +14,9 @@ const authOptions = {
         if (email?.length < 4 || password?.length < 4) {
           throw new Error("Invalid email or password");
         }
+
+        const isConnected = await connectDB();
+        if (!isConnected) throw new Error("Internal server error");
 
         const user = await User.findOne({ email });
         if (!user) {

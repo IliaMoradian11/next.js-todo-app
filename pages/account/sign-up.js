@@ -34,7 +34,7 @@ export default function SignUpPage() {
         redirect: false,
       });
       if (response.ok) {
-        toast.success("Logged in successfully");
+        toast.success("Successfully sign up");
         router.push("/account/profile");
       } else {
         toast.error("Account created; please login.");
