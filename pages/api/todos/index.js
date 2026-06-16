@@ -33,13 +33,10 @@ export default async function handler(req, res) {
           .status(422)
           .json({ ok: false, message: "Invalid status or todo name" });
 
-      user.todos = {
-        ...user.todos,
-        [req.body.status]: [
-          ...user.todos[req.body.status],
-          { title: req.body.title, todoId: uuidV7() },
-        ],
-      };
+      user.todos[status] = [
+        ...user.todos[status],
+        { title: title, todoId: uuidV7() },
+      ];
 
       await user.save();
       return res

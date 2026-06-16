@@ -1,13 +1,14 @@
 import Head from "next/head";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { BiCheckDouble } from "react-icons/bi";
 import { GrAddCircle } from "react-icons/gr";
-import { MdSettings, MdStart } from "react-icons/md";
-import { TbMapSearch } from "react-icons/tb";
 import { toast } from "react-toastify";
 
+import StatusRadios from "@/components/modules/StatusRadios";
+
 import styles from "@/styles/pages/add-todo.module.css";
+
+const addTodoStatusTexts = ["todo", "inProgress", "review", "done"];
 
 export default function AddTodoPage() {
   const [form, setForm] = useState({ title: "", status: "todo" });
@@ -67,58 +68,14 @@ export default function AddTodoPage() {
             value={form.title}
             onChange={(e) => setForm({ ...form, title: e.target.value })}
           />
-          <button
-            className={`${styles.status} ${styles.status1}`}
-            onClick={() => changeStatusHandler("todo")}
-          >
-            <MdStart />
-            <span>Todo</span>
-            <input
-              type="radio"
-              name="status"
-              checked={form.status === "todo"}
-              onChange={() => changeStatusHandler("todo")}
+          {addTodoStatusTexts.map((statusText, index) => (
+            <StatusRadios
+              index={index}
+              currentStatus={form.status}
+              handler={changeStatusHandler}
+              statusText={statusText}
             />
-          </button>
-          <button
-            className={`${styles.status} ${styles.status2}`}
-            onClick={() => changeStatusHandler("inProgress")}
-          >
-            <MdSettings />
-            <span>In progress</span>
-            <input
-              type="radio"
-              name="status"
-              checked={form.status === "inProgress"}
-              onChange={() => changeStatusHandler("inProgress")}
-            />
-          </button>
-          <button
-            className={`${styles.status} ${styles.status3}`}
-            onClick={() => changeStatusHandler("review")}
-          >
-            <TbMapSearch />
-            <span>Review</span>
-            <input
-              type="radio"
-              name="status"
-              checked={form.status === "review"}
-              onChange={() => changeStatusHandler("review")}
-            />
-          </button>
-          <button
-            className={`${styles.status} ${styles.status4}`}
-            onClick={() => changeStatusHandler("done")}
-          >
-            <BiCheckDouble />
-            <span>Done</span>
-            <input
-              type="radio"
-              name="status"
-              checked={form.status === "done"}
-              onChange={() => changeStatusHandler("done")}
-            />
-          </button>
+          ))}
           <button onClick={submitHandler} className={styles.submit}>
             Add
           </button>
