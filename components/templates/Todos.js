@@ -27,7 +27,12 @@ function Todos() {
     <div className={styles.container}>
       {Object.keys(todos).length === 4
         ? Object.keys(todos).map((todo, index) => (
-            <TodoCard index={index} todosList={todos[todo]} />
+            <TodoCard
+              index={index}
+              todosList={todos[todo]}
+              key={`status ${index}`}
+              setTodos={setTodos}
+            />
           ))
         : null}
     </div>

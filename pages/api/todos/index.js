@@ -1,6 +1,7 @@
 import { getSession } from "next-auth/react";
 import { v7 as uuidV7 } from "uuid";
 
+import { validStatus } from "@/constants/validStatus";
 import User from "@/models/User";
 import connectDB from "@/utils/connectDB";
 
@@ -25,10 +26,7 @@ export default async function handler(req, res) {
         return res.status(404).json({ ok: false, message: "User not found" });
 
       const { status, title } = req.body;
-      if (
-        !["todo", "inProgress", "review", "done"].includes(status) ||
-        title.length < 4
-      )
+      if (!validStatus.includes(status) || title.length < 4)
         return res
           .status(422)
           .json({ ok: false, message: "Invalid status or todo name" });
