@@ -10,3 +10,9 @@
   border: none;
   font-size: 1rem;
 }
+
+@media (max-width: 425px) {
+  .status {
+    width: 100%;
+  }
+}

@@ -20,7 +20,9 @@ function Layout({ children }) {
     <>
       <header className={styles.header}>
         <Link href="/">
-          <h2>Todo app | Next.js Fullstack Project</h2>
+          <h2>
+            Todo app <span>| Next.js Fullstack Project</span>
+          </h2>
         </Link>
         {status === "authenticated" ? (
           <button onClick={signOutHandler}>
@@ -41,19 +43,19 @@ function Layout({ children }) {
             <li>
               <Link href="/">
                 <BsTextLeft />
-                Todos
+                <span>Todos</span>
               </Link>
             </li>
             <li>
               <Link href="/todos/add-todo">
                 <BiCommentAdd />
-                Add todo
+                <span>Add todo</span>
               </Link>
             </li>
             <li>
               <Link href="/account/profile">
                 <CgProfile />
-                Profile
+                <span>Profile</span>
               </Link>
             </li>
           </ul>

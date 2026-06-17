@@ -43,3 +43,21 @@
   background-color: blue;
   color: white;
 }
+
+@media (max-width: 550px) {
+  .container .input {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .container .submit {
+    width: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+  .container h3 {
+    font-size: 1rem;
+  }
+}

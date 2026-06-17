@@ -71,3 +71,33 @@
   padding: 30px;
   overflow-y: auto;
 }
+
+@media (max-width: 500px) {
+  .header h2 span {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .content aside li svg {
+    margin-right: 0;
+    font-size: 1.25rem;
+  }
+  .content aside li span {
+    display: none;
+  }
+  .content aside {
+    width: 50px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+  .content aside div {
+    display: none;
+  }
+  .content main {
+    width: calc(100% - 50px);
+  }
+}

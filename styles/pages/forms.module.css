@@ -57,3 +57,30 @@
   color: blue;
   margin-left: 5px;
 }
+
+@media (max-width: 425px) {
+  .wrapper,
+  .container {
+    width: 100%;
+  }
+  .wrapper {
+    margin-top: 100px;
+  }
+  .container h2 {
+    margin-bottom: 30px;
+  }
+  .container button[type="submit"],
+  .container input {
+    width: 100%;
+    font-size: small;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 20px 30px;
+  }
+  .container p {
+    font-size: 0.8rem;
+  }
+}
